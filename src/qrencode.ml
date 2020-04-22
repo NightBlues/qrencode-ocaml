@@ -18,8 +18,12 @@ module QRcode = struct
   type t
   external encode : QRinput.t -> t = "ocaml_QRcode_encodeInput"
   external to_png : t -> int -> int -> string -> unit = "ocaml_writePNG"
+  external to_png_string : t -> int -> int -> string = "ocaml_writePNGbuf"
+  external width : t -> int = "ocaml_QRcode_width"
+  external data : t -> string = "ocaml_QRcode_data"
 
   let to_png t ~size ~margin ~outfile = to_png t size margin outfile
+  let to_png_string t ~size ~margin = to_png_string t size margin
 end
 
 module Basic = struct

@@ -17,8 +17,11 @@ end
 
 module QRcode : sig
   type t
+  val width : t -> int
+  val data : t -> string
   val encode : QRinput.t -> t
   val to_png : t -> size:int -> margin:int -> outfile:string -> unit
+  val to_png_string : t -> size:int -> margin:int -> string
 end
 
 module Basic : sig
